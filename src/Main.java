@@ -27,23 +27,16 @@ public class Main {
             if (first > 10 || first < 1 || second > 10 || second < 1 || !operator.matches("[-+*/]")) {
                 throw new Exception("Ошибка!");
             }
+            int result = 0;
             switch (operator) {
-                case "+" -> {
-                    return String.valueOf(first + second);
-                }
-                case "-" -> {
-                    return String.valueOf(first - second);
-                }
-                case "*" -> {
-                    return String.valueOf(first * second);
-                }
-                case "/" -> {
-                    return String.valueOf(first / second);
-                }
+                case "+" -> result = first + second;
+                case "-" -> result = first - second;
+                case "*" -> result = first * second;
+                case "/" -> result = first / second;
             }
+            return String.valueOf(result);
         } catch (NumberFormatException e) {
             throw new Exception("Ошибка!");
         }
-        return null;
     }
 }
