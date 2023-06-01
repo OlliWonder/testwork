@@ -20,6 +20,7 @@ public class Main {
             throw new Exception("Ошибка!");
         }
         
+        int result = 0;
         String operator = strings[1];
         try {
             int first = Integer.parseInt(strings[0]);
@@ -27,7 +28,7 @@ public class Main {
             if (first > 10 || first < 1 || second > 10 || second < 1 || !operator.matches("[-+*/]")) {
                 throw new Exception("Ошибка!");
             }
-            int result = 0;
+            
             switch (operator) {
                 case "+" -> result = first + second;
                 case "-" -> result = first - second;
@@ -36,7 +37,8 @@ public class Main {
             }
             return String.valueOf(result);
         } catch (NumberFormatException e) {
-            throw new Exception("Ошибка!");
+           e.printStackTrace();
         }
+        return String.valueOf(result);
     }
 }
