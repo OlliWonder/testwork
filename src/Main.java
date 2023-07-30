@@ -29,12 +29,13 @@ public class Main {
                 throw new Exception("Ошибка!");
             }
             
-            switch (operator) {
-                case "+" -> result = first + second;
-                case "-" -> result = first - second;
-                case "*" -> result = first * second;
-                case "/" -> result = first / second;
-            }
+            result = switch (operator) {
+                case "+" -> first + second;
+                case "-" -> first - second;
+                case "*" -> first * second;
+                case "/" -> first / second;
+                default -> throw new IllegalStateException("Unexpected value: " + operator);
+            };
             return String.valueOf(result);
         } catch (NumberFormatException e) {
            e.printStackTrace();
