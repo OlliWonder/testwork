@@ -34,6 +34,7 @@ public class Main {
                 case "-" -> first - second;
                 case "*" -> first * second;
                 case "/" -> first / second;
+                default -> throw new IllegalStateException("Unexpected value: " + operator);
             };
             return String.valueOf(result);
         } catch (NumberFormatException e) {
